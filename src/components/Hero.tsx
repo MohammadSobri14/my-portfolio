@@ -35,24 +35,24 @@ const Hero = () => {
         />
       </div>
 
+      {/* Fixed Status Badge */}
+      <motion.div 
+        className="fixed bottom-8 left-8 z-40"
+        initial={scaleIn.initial}
+        animate={scaleIn.animate}
+        transition={scaleIn.transition}
+      >
+        <span className="px-4 py-2 bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/30 rounded-full text-sm font-medium text-emerald-400 flex items-center gap-2">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          Available for Work
+        </span>
+      </motion.div>
+
       <div className="container relative z-10 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Greeting */}
-          <motion.div 
-            className="inline-block"
-            initial={scaleIn.initial}
-            animate={scaleIn.animate}
-            transition={scaleIn.transition}
-            viewport={{ once: true }}
-          >
-            <span className="px-4 py-2 bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/30 rounded-full text-sm font-medium text-emerald-400 flex items-center gap-2">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-              </span>
-              Available for freelance work
-            </span>
-          </motion.div>
 
           {/* Main heading */}
           <motion.h1 
@@ -64,7 +64,7 @@ const Hero = () => {
           >
             Hi, I'm{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Your Name
+              Mohammad Sobri
             </span>
           </motion.h1>
 
@@ -76,7 +76,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Full Stack Developer & Creative Designer
+            Web Developer
           </motion.p>
 
           {/* Description */}
@@ -140,21 +140,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2">
-          <motion.div 
-            className="w-1 h-3 bg-primary rounded-full"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 };

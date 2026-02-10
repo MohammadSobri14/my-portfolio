@@ -57,12 +57,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-primary/20 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-primary/20 flex flex-col sm:flex-row justify-center items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 Your Name. All rights reserved.
-          </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-2">
-            Made with <Heart className="h-4 w-4 text-accent fill-accent" /> using React & Tailwind
+            © 2025 Mohammad Sobri. All rights reserved.
           </p>
         </div>
       </div>

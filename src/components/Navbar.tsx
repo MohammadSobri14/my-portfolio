@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-2 py-2 ${
+        className={`fixed w-max top-4 left-0 right-0 mx-auto z-50 transition-all duration-300 rounded-full px-2 py-2 ${
           scrolled
             ? "bg-card/80 backdrop-blur-xl border border-primary/20 shadow-card"
             : "bg-card/60 backdrop-blur-md border border-border"
@@ -49,7 +49,7 @@ const Navbar = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-1 justify-center">
           {navItems.map((item) => {
             const isActive =
               (item.href === "#" && activeSection === "") ||
