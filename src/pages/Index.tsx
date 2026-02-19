@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import ScrollVelocity from "@/components/ScrollVelocity";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
@@ -16,6 +17,12 @@ const Index = () => {
       <Navbar />
       <HireMeButton />
       <Hero />
+      <ScrollVelocity
+        texts={[
+          "Tech Enthusiast",
+          "Modern Web",
+        ]}
+      />
       <About />
       <Experience />
       <Education />
