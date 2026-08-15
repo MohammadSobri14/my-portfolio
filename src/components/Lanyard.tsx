@@ -125,7 +125,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
     linearDamping: 4,
   };
 
- const gltf = useGLTF(cardGLB) as any;
+  const gltf = useGLTF(cardGLB) as any;
   const nodes = (gltf?.nodes ?? {}) as any;
   const materials = (gltf?.materials ?? {}) as any;
   const texture = useTexture(lanyard) as unknown as THREE.Texture;
@@ -160,7 +160,9 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
 
   useFrame((state, delta) => {
     if (dragged && typeof dragged !== "boolean") {
-      vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera as any);
+      vec
+        .set(state.pointer.x, state.pointer.y, 0.5)
+        .unproject(state.camera as any);
       dir.copy(vec).sub(state.camera.position).normalize();
       vec.add(dir.multiplyScalar(state.camera.position.length()));
       [card, j1, j2, j3, fixed].forEach((ref) => ref.current?.wakeUp());
@@ -178,19 +180,28 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
           0.1,
           Math.min(1, rc.lerped.distanceTo(rc.translation())),
         );
-        rc.lerped.lerp(rc.translation(), delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)));
+        rc.lerped.lerp(
+          rc.translation(),
+          delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)),
+        );
       });
       const j3t = (j3.current as any)?.translation?.();
       if (j3t) curve.points[0].copy(j3t);
       curve.points[1].copy((j2.current as any).lerped);
       curve.points[2].copy((j1.current as any).lerped);
       curve.points[3].copy((fixed.current as any).translation());
-      (band.current?.geometry as any)?.setPoints(curve.getPoints(isMobile ? 16 : 32));
+      (band.current?.geometry as any)?.setPoints(
+        curve.getPoints(isMobile ? 16 : 32),
+      );
       const angv = (card.current as any).angvel?.();
       const rott = (card.current as any).rotation?.();
       if (angv) ang.copy(angv);
       if (rott) rot.copy(rott);
-      (card.current as any)?.setAngvel?.({ x: ang.x, y: ang.y - (rot.y || 0) * 0.25, z: ang.z });
+      (card.current as any)?.setAngvel?.({
+        x: ang.x,
+        y: ang.y - (rot.y || 0) * 0.25,
+        z: ang.z,
+      });
     }
   });
 
@@ -252,9 +263,14 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
             onPointerDown={(e: any) => {
               (e.target as any)?.setPointerCapture?.(e.pointerId);
               drag(
-                new THREE.Vector3().copy((e as any).point).sub(
-                  vec.copy((card.current as any)?.translation?.() ?? new THREE.Vector3()),
-                ),
+                new THREE.Vector3()
+                  .copy((e as any).point)
+                  .sub(
+                    vec.copy(
+                      (card.current as any)?.translation?.() ??
+                        new THREE.Vector3(),
+                    ),
+                  ),
               );
             }}
           >
@@ -278,7 +294,11 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
         <meshLineMaterial
           color="white"
           depthTest={false}
-          resolution={isMobile ? new THREE.Vector2(1000, 2000) : new THREE.Vector2(1000, 1000)}
+          resolution={
+            isMobile
+              ? new THREE.Vector2(1000, 2000)
+              : new THREE.Vector2(1000, 1000)
+          }
           useMap={1}
           map={texture}
           repeat={new THREE.Vector2(-4, 1)}
