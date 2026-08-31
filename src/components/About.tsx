@@ -15,7 +15,8 @@ import {
   staggerContainer,
   staggerItem,
 } from "@/lib/animations";
-import LightRays from "./LightRays";
+import dynamic from "next/dynamic";
+const LightRays = dynamic(() => import("./LightRays"), { ssr: false });
 import {
   Tooltip,
   TooltipContent,
@@ -142,11 +143,11 @@ const About = () => {
                         <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all">
                           <item.icon className="h-6 w-6 text-primary" />
                         </div>
-                        <div className="min-w-0">
+                        <div className="min-w-0 flex-1">
                           <p className="text-xs text-muted-foreground mb-1 group-hover:text-primary/80 transition-colors">
                             {item.label}
                           </p>
-                          <p className="text-sm font-medium leading-snug group-hover:text-primary transition-colors">
+                          <p className="text-sm font-medium leading-snug group-hover:text-primary transition-colors break-all sm:break-words">
                             {item.value}
                           </p>
                         </div>
@@ -179,6 +180,7 @@ const About = () => {
                           src={`https://skillicons.dev/icons?i=${skill.icon}`} 
                           alt={skill.name} 
                           className="h-12 w-12 object-contain"
+                          loading="lazy"
                         />
                       </motion.div>
                     </TooltipTrigger>

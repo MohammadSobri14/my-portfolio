@@ -81,32 +81,24 @@ const Projects = () => {
       githubUrl: "https://github.com/MohammadSobri14/sertfikasi_bnsp_jwd_fe.git",
     },
     {
-      title: "Company Profile UPT PKB – Dinas Perhubungan Kota Yogyakarta",
+      title: "Real Estate Portal",
       description:
-        "Developed a company profile website tailored to the organization's requirements. Built an admin dashboard for managing and publishing articles. Implemented both front-end and back-end functionalities to ensure responsive design and efficient content management.",
-      tags: ["Next.js", "Laravel", "MySQL"],
-      image: "/project/upt%20pkb.png",
-      imageClass: "object-contain",
-      liveUrl: "https://dishub-upt-pkb.vercel.app/",
-      githubUrls: [
-        {
-          label: "FE",
-          url: "https://github.com/MohammadSobri14/dishub-upt-pkb.git",
-        },
-        {
-          label: "BE",
-          url: "https://github.com/MohammadSobri14/dishub-upt-pkb-be.git",
-        },
-      ],
+        "Property listing platform with advanced search, virtual tours, and agent management system.",
+      tags: ["Vue.js", "Laravel", "MySQL", "AWS"],
+      image:
+        "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+      liveUrl: "#",
+      githubUrl: "#",
     },
     {
-      title: "SmartFindr - Smartphone Search Engine",
+      title: "Social Media Dashboard",
       description:
-        "A natural text-based smartphone search engine using NLP and web scraping. Matches queries like \"clear camera\" to relevant devices using SentenceTransformer and cosine similarity.",
-      tags: ["Flask", "BeautifulSoup", "NLP", "MySQL", "Tailwind CSS"],
-      image: "/project/smartfindr.png",
-      imageClass: "object-contain",
-      githubUrl: "https://github.com/MohammadSobri14/search-engine-smartfindr",
+        "Analytics dashboard for managing multiple social media accounts with scheduling and insights.",
+      tags: ["React", "Chart.js", "Express", "Redis"],
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      liveUrl: "#",
+      githubUrl: "#",
     },
   ];
 
@@ -149,7 +141,6 @@ const Projects = () => {
                     className={`w-full h-full ${project.imageClass || "object-cover"}`}
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60"></div>
                 </div>

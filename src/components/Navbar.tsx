@@ -8,7 +8,7 @@ const navItems = [
   { icon: Briefcase, label: "Experience", href: "#experience" },
   { icon: Award, label: "Certificates", href: "#certificates" },
   { icon: FolderOpen, label: "Projects", href: "#projects" },
-  { icon: Mail, label: "Contact", href: "#contact" },
+  // { icon: Mail, label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {

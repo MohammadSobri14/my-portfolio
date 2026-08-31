@@ -10,8 +10,13 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInUp, scaleIn } from "@/lib/animations";
-import Lanyard from "./Lanyard";
-import Squares from "./Squares";
+import dynamic from "next/dynamic";
+const Lanyard = dynamic(() => import("./Lanyard"), { ssr: false });
+const Squares = dynamic(() => import("./Squares"), { ssr: false });
+
+const UpworkIcon = ({ className }: { className?: string }) => (
+  <img src="/upwork.png" alt="Upwork" className={`object-contain ${className || ""}`} />
+);
 
 const Hero = () => {
   const socials = [
@@ -26,7 +31,7 @@ const Hero = () => {
       label: "GitHub",
     },
     {
-      icon: Briefcase,
+      icon: UpworkIcon,
       href: "https://www.upwork.com/freelancers/~01ef4ca7f6b610c5df",
       label: "Upwork",
     },
